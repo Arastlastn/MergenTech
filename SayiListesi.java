@@ -87,7 +87,20 @@ public class SayiListesi {
 			swap(enKucukIndex,i);
 		}
 	}
-public void selectionSortTers() {
+	public void bubbleSort() {
+		boolean swapped = true;
+		
+		while(swapped) {
+			swapped = false;
+			for(int i = 1; i < elemanSayisi; i++) {
+				if(liste[i-1]>liste[i]) {
+					swap(i-1,i);
+					swapped = true;
+				}
+			}
+		}
+	}
+	public void selectionSortTers() {
 		
 		int enBuyukIndex = 0;
 		
