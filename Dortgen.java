@@ -5,25 +5,31 @@ public class Dortgen {
 	
 	Rectangle r;
 	
-	public Dortgen(int x, int y, int width, int height) {
+	
+	int vX, vY;
+	
+	public Dortgen(int x, int y, int width, int height,int vX,int vY) {
 		r=new Rectangle(x, y, width, height);
+		this.vX=vX;
+		this.vY=vY;
 	}
 	
 	public void ekranaCiz(Graphics g) {
 		
-		g.drawRect((int) r.getX(),(int) r.getY(),(int) 
-				r.getWidth(),(int) r.getHeight());
+		g.drawRect((int) r.getX(),(int) r.getY(),
+				(int) r.getWidth(),(int) r.getHeight());
 		
 	}
-	public void hareketEt(int x, int y, Dortgen[] digerleri, int sayi) {
+	public void hareketEt(Dortgen[] digerleri, int sayi) {
 		
 		Rectangle gecici = new Rectangle(r);
-		gecici.setLocation((int)gecici.getX() + x,(int) gecici.getY() + y);
+		gecici.setLocation((int)gecici.getX() + vX,
+				(int) gecici.getY() + vY);
 		
 		boolean cakisma = false;
 		
 		for(int i = 0; i<sayi; i++) {
-			if(gecici.intersects(digerleri[i].getRectangle())) {
+			if((!this.equals(digerleri[i]))&& gecici.intersects(digerleri[i].getRectangle())) {
 				
 				cakisma = true;
 				
@@ -36,7 +42,11 @@ public class Dortgen {
 		}
 		
 		if(cakisma == false) {
-			r.setLocation((int)r.getX() + x,(int) r.getY() + y);
+			r.setLocation((int)r.getX() + vX,(int) r.getY() + vY);
+		}
+		else {
+			vX= -vX;
+			vY= -vY;
 		}
 		
 	}
