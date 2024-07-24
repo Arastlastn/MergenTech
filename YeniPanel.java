@@ -28,6 +28,7 @@ public class YeniPanel extends JPanel implements KeyListener {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		//g.drawRect(0, 0, 620, 440);
 		a.ekranaCiz(g);
 		for(int i = 0; i<elemanSayisi; i++) {
 			digerleri[i].ekranaCiz(g);

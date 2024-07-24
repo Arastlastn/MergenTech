@@ -30,6 +30,11 @@ public class Dortgen {
 			}
 		}
 		
+		if(gecici.getX()<0 || gecici.getY()<0 ||
+			gecici.getX() > 620 - gecici.getWidth() || gecici.getY()>440-gecici.height) {
+			cakisma = true;
+		}
+		
 		if(cakisma == false) {
 			r.setLocation((int)r.getX() + x,(int) r.getY() + y);
 		}
